@@ -1,6 +1,6 @@
 # Cerbero
 
-Cerbero es una herramienta de línea de comandos diseñada para realizar ataques de fuerza bruta contra servicios SSH y FTP. Esta herramienta puede ser útil para auditorías de seguridad o pruebas de penetración donde se necesite probar la resistencia de las credenciales de acceso.
+Cerbero is a command line tool designed to perform brute force attacks against SSH and FTP services. This tool can be useful for security audits or penetration tests where the resistance of access credentials needs to be tested.
 
 <p align="center">
   <img src="https://github.com/D1se0/cerbero/assets/164921056/064b49a7-e7f8-4548-9017-1a68390a032e" alt="Directorybrute" width="400">
@@ -8,131 +8,130 @@ Cerbero es una herramienta de línea de comandos diseñada para realizar ataques
 
 ---
 
-## Características Principales
+## Main Features
 
-- Soporte para ataques de fuerza bruta a servicios SSH y FTP.
-- Capacidad para manejar múltiples usuarios y contraseñas a través de archivos o entradas directas.
-- Opción para enumerar usuarios a través de vulnerabilidades conocidas en versiones de SSH.
-- Manejo de hilos para mejorar el rendimiento durante los ataques.
-- Interfaz de línea de comandos intuitiva y fácil de usar.
+- Support for brute force attacks on SSH and FTP services.
+- Ability to manage multiple users and passwords through files or direct entries.
+- Option to list users across known vulnerabilities in SSH versions.
+- Thread management to improve performance during attacks.
+- Intuitive and easy-to-use command line interface.
 
-## Requisitos
+## Requirements
 
-Para ejecutar Cerbero, se necesitan las siguientes dependencias:
+To run Cerbero, the following dependencies are required:
 
 - `Python 3.x`
-- Bibliotecas Python:
+- Libraries Python:
   - `paramiko`
   - `ftplib`
   - `colorama`
 
-## Puedes instalar las dependencias ejecutando:
+## You can install the dependencies by running:
 
-### Para instalar solo la herramienta `cerbero.py`
+### To install only the tool `cerbero.py`
 
 ```bash
 ./requeriments.sh
 ```
 
-### Para instalar solo la herramienta `cerbero_only_ssh.py`
+### To install only the tool `cerbero_only_ssh.py`
 
 ```bash
 ./requeriments_only_ssh.sh
 ```
 
-## Uso
+## Use
 
-### Ejemplos de Uso Básico
+### Basic Usage Examples
 
-**Ataque SSH con un usuario y contraseña específicos:**
+**SSH attack with a specific username and password:**
 
 ```bash
  python3 cerbero.py -H <target_ip> -u <username> -p <password> -s ssh
 ```
 
-**Ataque SSH con un usuario y diccionario de contraseñas:**
+**SSH attack with a user and password dictionary:**
 
 ```bash
  python3 cerbero.py -H <target_ip> -u <username> -P <file_passwords> -s ssh
 ```
 
-**Ataque SSH con un diccionario de usuarios y contraseña especifica:**
+**SSH attack with a user dictionary and specific password:**
 
 ```bash
  python3 cerbero.py -H <target_ip> -U <file_usernames> -p <password> -s ssh
 ```
 
-**Ataque SSH con un diccionario de usuarios y diccionario de contraseñas:**
+**SSH attack with a user dictionary and password dictionary:**
 
 ```bash
  python3 cerbero.py -H <target_ip> -U <file_usernames> -P <file_passwords> -s ssh
 ```
 
-**Ataque FTP con un usuario y diccionario de contraseñas:**
+**FTP attack with a user and password dictionary:**
 
 ```bash
  python3 cerbero.py -H <target_ip> -u <username> -P <file_passwords> -s ftp
 ```
 
-**Ataque FTP con un diccionario de usuarios y contraseña especifica:**
+**FTP attack with a user dictionary and specific password:**
 
 ```bash
  python3 cerbero.py -H <target_ip> -U <file_usernames> -p <password> -s ftp
 ```
 
-**Ataque FTP con archivos de usuarios y contraseñas:**
+**FTP attack with username and password files:**
 
 ```bash
 python cerbero.py -H <target_ip> -U <FILE_USERS> -P <FILE_PASSWORDS> -s ftp
 ```
 
-**Ataque SSH o FTP con usuario y contraseñas haciendo varias combinaciones sobre el usuario:**
+**SSH or FTP attack with username and passwords using various combinations on the user:**
 
 ```bash
  python3 cerbero.py -H <target_ip> -u <username> -P <file_passwords> -s ssh -e n s r
 ```
 
-### Explicación
+### Explanation
 
-`n`: Trata con un intento de contraseña vacío (null password).
+`n`: Deals with a null password attempt.
 
-`s`: Utiliza el nombre de usuario como contraseña.
+`s`: Use the username as a password.
 
-`r`: Invierte el nombre de usuario y lo usa como contraseña.
+`r`: Reverses the username and uses it as a password.
 
-### Opciones Disponibles
+### Available options
 
-`-H`, `--host`: Especifica la dirección IP del host de destino.
+`-H`, `--host`: Specifies the IP address of the destination host.
 
-`-s`, `--service`: Define el servicio a atacar (ssh o ftp).
+`-s`, `--service`: Defines the service to attack (ssh or ftp).
 
-`-u`, `--user`: Proporciona un usuario único para la autenticación.
+`-u`, `--user`: Provides a single user for authentication.
 
-`-p`, `--passwd`: Proporciona una contraseña única para la autenticación.
+`-p`, `--passwd`: Provides a one-time password for authentication.
 
-`-U`, `--user-file`: Especifica un archivo con una lista de usuarios.
+`-U`, `--user-file`: Specifies a file with a list of users.
 
-`-P`, `--passwd-file`: Especifica un archivo con una lista de contraseñas.
+`-P`, `--passwd-file`: Specifies a file with a list of passwords.
 
-`-t`, `--threads`: Número de hilos a utilizar para aumentar la velocidad del ataque (por defecto: 5).
+`-t`, `--threads`: Number of threads to use to increase the speed of the attack (default: 5).
 
-`-o`, `--output-file`: Guarda los resultados en un archivo especificado.
+`-o`, `--output-file`: Saves the results to a specified file.
 
-`-c`, `--success-continue`: Continúa con la siguiente combinación de usuario/contraseña válida después de encontrar una.
+`-c`, `--success-continue`: It continues with the next valid username/password combination after finding one.
 
-`-e`, `--extra-params`: Parámetros adicionales para personalizar las combinaciones de usuario/contraseña.
+`-e`, `--extra-params`: Additional parameters to customize user/password combinations.
 
-`-en`, `--enumerate-users`: Intenta enumerar usuarios aprovechando vulnerabilidades conocidas en versiones de SSH.
+`-en`, `--enumerate-users`: Attempts to enumerate users by exploiting known vulnerabilities in SSH versions.
 
-### Ejecución como Root
+### Running as Root
 
-Para ejecutar Cerbero con todos los permisos necesarios, se recomienda ejecutarlo como usuario root o con privilegios equivalentes, especialmente si se necesitan puertos bajos o se realizan múltiples conexiones simultáneas.
+To run Cerbero with all necessary permissions, it is recommended to run it as root or with equivalent privileges, especially if low ports are required or multiple simultaneous connections are made.
 
-### Contribuciones
+### Contributions
 
-Si deseas contribuir a Cerbero, ¡estamos abiertos a sugerencias, reportes de problemas y solicitudes de mejora! Por favor, crea un issue en este repositorio o envía una pull request con tus cambios.
+If you would like to contribute to Cerbero, we are open to suggestions, problem reports, and improvement requests! Please create an issue in this repository or submit a pull request with your changes.
 
-Agradecimientos
-Cerbero fue creado por Diseo (@d1se0) como proyecto personal. Agradecemos a todos los contribuidores y usuarios por su apoyo y retroalimentación.
+## Thanks
 
-Este formato te permitirá tener un README.md estructurado y claro para tu proyecto en GitHub, proporcionando a los usuarios una guía rápida sobre cómo usar tu herramienta y los detalles necesarios para comenzar. Asegúrate de personalizarlo según tus necesidades y detalles específicos de implementación.
+Cerbero was created by Diseo (@d1se0) as a personal project. We thank all contributors and users for their support and feedback.
