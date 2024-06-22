@@ -2,6 +2,13 @@
 
 Cerbero es una herramienta de línea de comandos diseñada para realizar ataques de fuerza bruta contra servicios SSH y FTP. Esta herramienta puede ser útil para auditorías de seguridad o pruebas de penetración donde se necesite probar la resistencia de las credenciales de acceso.
 
+<p align="center">
+  <img src="https://github.com/D1se0/cerbero/assets/164921056/6c700ed7-2d1e-47d9-a2fc-b5800a593bb9" alt="Directorybrute" width="400">
+</p>
+
+---
+
+
 ## Características Principales
 
 - Soporte para ataques de fuerza bruta a servicios SSH y FTP.
