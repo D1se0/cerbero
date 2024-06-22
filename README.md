@@ -95,21 +95,33 @@ python cerbero.py -H <target_ip> -U <FILE_USERS> -P <FILE_PASSWORDS> -s ftp
 ### Explicación
 
 `n`: Trata con un intento de contraseña vacío (null password).
+
 `s`: Utiliza el nombre de usuario como contraseña.
+
 `r`: Invierte el nombre de usuario y lo usa como contraseña.
 
 ### Opciones Disponibles
 
 `-H`, `--host`: Especifica la dirección IP del host de destino.
+
 `-s`, `--service`: Define el servicio a atacar (ssh o ftp).
+
 `-u`, `--user`: Proporciona un usuario único para la autenticación.
+
 `-p`, `--passwd`: Proporciona una contraseña única para la autenticación.
+
 `-U`, `--user-file`: Especifica un archivo con una lista de usuarios.
+
 `-P`, `--passwd-file`: Especifica un archivo con una lista de contraseñas.
+
 `-t`, `--threads`: Número de hilos a utilizar para aumentar la velocidad del ataque (por defecto: 5).
+
 `-o`, `--output-file`: Guarda los resultados en un archivo especificado.
+
 `-c`, `--success-continue`: Continúa con la siguiente combinación de usuario/contraseña válida después de encontrar una.
+
 `-e`, `--extra-params`: Parámetros adicionales para personalizar las combinaciones de usuario/contraseña.
+
 `-en`, `--enumerate-users`: Intenta enumerar usuarios aprovechando vulnerabilidades conocidas en versiones de SSH.
 
 ### Ejecución como Root
